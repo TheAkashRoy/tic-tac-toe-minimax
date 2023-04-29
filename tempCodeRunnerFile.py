@@ -1,1 +1,1 @@
-        # printBoard(board)
+isWin(board,ai)==-1
