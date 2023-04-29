@@ -101,33 +101,60 @@ def minimax(board, ai, isMaximizing, human):
 
 board= [ ["-","-","-"],["-","-","-"],["-","-","-"] ]
 
-
+t = int(input("Press 1 for taking x and 2 for takig o: "))
 ai = "o"
 human = "x"
+if t==2:
+    ai = "x"
+    human = "o"
 spaceCount = 9
 win=0
+print(" Initial Sate: ")
 printBoard(board)
 while(spaceCount!=0):
-    if spaceCount%2==1:
-        userInput(board)
-        spaceCount-=1
-        if(spaceCount==0):
-            printBoard(board)
-        continue
-    else:
-        move = ai_move(board,ai,human) #this will give the computer move
-        board[move[0]][move[1]] = ai
-    spaceCount-=1
-    if isWin(board,ai) == 0:
-        printBoard(board)
-        print("here")
-        continue
-    else:
-        printBoard(board)
-        if isWin(board,ai)==1:
-            print(ai, "WON!!")
-        elif isWin(board,ai)==-1:
-            print(human, "WON!!")
+    if t==1:
+        if spaceCount%2==1:
+            userInput(board)
+            spaceCount-=1
+            if(spaceCount==0):
+                printBoard(board)
+            continue
         else:
-            print("Its a tie")
-        break
+            move = ai_move(board,ai,human) #this will give the computer move
+            board[move[0]][move[1]] = ai
+        spaceCount-=1
+        if isWin(board,ai) == 0:
+            printBoard(board)
+            continue
+        else:
+            printBoard(board)
+            if isWin(board,ai)==1:
+                print(ai, "WON!!")
+            elif isWin(board,ai)==-1:
+                print(human, "WON!!")
+            else:
+                print("Its a tie")
+            break
+    else:
+        if spaceCount%2==0:
+            userInput(board)
+            spaceCount-=1
+            if(spaceCount==0):
+                printBoard(board)
+            continue
+        else:
+            move = ai_move(board,ai,human) #this will give the computer move
+            board[move[0]][move[1]] = ai
+        spaceCount-=1
+        if isWin(board,ai) == 0:
+            printBoard(board)
+            continue
+        else:
+            printBoard(board)
+            if isWin(board,ai)==1:
+                print(ai, "WON!!")
+            elif isWin(board,ai)==-1:
+                print(human, "WON!!")
+            else:
+                print("Its a tie")
+            break
