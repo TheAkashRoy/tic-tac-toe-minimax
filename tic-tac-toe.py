@@ -120,7 +120,7 @@ while(spaceCount!=0):
                 printBoard(board)
             continue
         else:
-            move = ai_move(board,ai,human) #this will give the computer move
+            move = ai_move(board,ai,human) 
             board[move[0]][move[1]] = ai
         spaceCount-=1
         if isWin(board,ai) == 0:
@@ -143,7 +143,7 @@ while(spaceCount!=0):
                 printBoard(board)
             continue
         else:
-            move = ai_move(board,ai,human) #this will give the computer move
+            move = ai_move(board,ai,human)
             board[move[0]][move[1]] = ai
         spaceCount-=1
         if isWin(board,ai) == 0:
